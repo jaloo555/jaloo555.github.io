@@ -1,7 +1,13 @@
 ---
 layout: page
-title: About
+title: "About"
 permalink: /about/
 ---
 
-Just a website detailing my journey into infosec.
+Just a CS student into Infosec
+
+## Stuff I'm posting: 
+
+Writeups.
+Code.
+Homelabs.
