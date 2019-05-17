@@ -2,7 +2,7 @@
 layout: post
 title:  "Welcome to Infosec"
 date:   2019-05-17 13:29:25 +0800
-categories: jekyll update
+categories: intro
 ---
 
 > Infosec is a vast field, here's my plan

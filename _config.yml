@@ -18,15 +18,29 @@ email: chisanch@outlook.com
 description: >- # this means to ignore newlines until "baseurl:"
   Writeups. Code. Homelabs.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+url: "jaloo555.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+github_username:  jaloo555
 
 # Build settings
 markdown: kramdown
-theme: minima
+theme: jekyll-whiteglass
 plugins:
-  - jekyll-feed
+  - jekyll-archives
+  - jekyll-paginate
+  - jekyll-sitemap
+
+permalink: /:year/:month/:day/:title/
+paginate_path: /posts/:num/
+paginate: 5
+
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layout: category_archives
+  permalinks:
+    category: /categories/:name/
+    tag: /tags/:name/
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
