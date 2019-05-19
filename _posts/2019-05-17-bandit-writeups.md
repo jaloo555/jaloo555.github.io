@@ -103,4 +103,15 @@ And, we're done!
 
 # Level 19 → Level 20
 
-IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x
+A quick lookup of what setuid gives us this:
+
+>setuid() sets the effective user ID of the calling process. If the effective UID of the caller is root, the real UID and saved set-user-ID are also set.
+
+Nice, now we just execute the command right after ./bandit20_do as it gives us privilege to access the password file as bandit20
+
+```bash
+./bandit20-do cat /etc/bandit_pass/bandit20
+```
+> Things learnt: setuid()
+
+# Level 20 → Level 21
