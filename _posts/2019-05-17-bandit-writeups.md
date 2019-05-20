@@ -10,6 +10,7 @@ This is a detailed write-up of my solutions to problems 14-34 for the Bandit war
 
 Due to the time of creating this post, I've decided to start the write up at level 14 and not re-do the previous levels.
 
+
 # Level 14 → Level 15
 
 First, we ssh into level 14 with the sshkey.private we got from the last level:
@@ -31,8 +32,8 @@ nc localhost 30000
 
 And we're done!
 
-
 > Things learnt: ssh, netcat, cat
+
 
 # Level 15 → Level 16
 
@@ -47,6 +48,7 @@ openssl s_client -connect localhost:30001
 We enter the password, and we're done!
 
 > Things learnt: ssl, s_client
+
 
 # Level 16 → Level 17
 
@@ -66,6 +68,7 @@ openssl s_client -connect localhost:31790
 And, we're done!
 
 > Things learnt: ssl, nc -z -v for port scanning
+
 
 # Level 17 → Level 18
 
@@ -87,6 +90,7 @@ Since it goes like user, group, others, 600 means only the user has permission t
 
 > Things learnt: chmod permissions, diff
 
+
 # Level 18 → Level 19
 
 In this level, I'm assuming exit1 in .bashrc is hosing us out. So, we can either try entering with sftp or using -t command on ssh to open a pseudo-tty (a pseudo terminal, emulating a hardware text terminal).
@@ -101,6 +105,7 @@ And, we're done!
 
 > Things learnt: pseudo terminals (ssh -t), sftp
 
+
 # Level 19 → Level 20
 
 A quick lookup of what setuid gives us this:
@@ -114,4 +119,97 @@ Nice, now we just execute the command right after ./bandit20_do as it gives us p
 ```
 > Things learnt: setuid()
 
+
 # Level 20 → Level 21
+
+For this level, we have to open two sessions. For the first one, we echo the password of the current level and pipe it to a open port like this:
+
+```bash
+echo "GbKksEFF4yrVs6il55v6gwY5aVje5f0j" | nc -l -p 30001
+```
+
+Now, we open the second session and use the ./suconnect program.
+
+```bash
+./suconnect 30001
+```
+
+And we're done!
+
+> Things learnt: nc -l -p
+
+
+# Level 21 → Level 22
+
+After cdíng into the directory, we see that the cronjob as follows:
+
+```bash
+@reboot bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null
+* * * * * bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null
+```
+
+Basically, a cronjob is used to schedule commands at a specific time. For this cronjob,it directs the output of */usr/bin/cronjob_bandit22.sh* into a null device (discards info)
+
+So, we look into what the cronjob does:
+
+```bash
+cat /usr/bin/cronjob_bandit22.sh
+
+#!/bin/bash
+chmod 644 /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+cat /etc/bandit_pass/bandit22 > /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+```
+
+Since it directs its output to this fine, we will look into it and find the password!
+
+> Things learnt: cronjobs, /dev/null
+
+
+# Level 22 → Level 23
+
+This is more or less the same as level 21. We look at the cronjob and find out it executes a shell script as follows:
+```bash
+#!/bin/bash
+
+myname=$(whoami)
+mytarget=$(echo I am user $myname | md5sum | cut -d ' ' -f 1)
+
+echo "Copying passwordfile /etc/bandit_pass/$myname to /tmp/$mytarget"
+
+cat /etc/bandit_pass/$myname > /tmp/$mytarget
+```
+
+Since it pipes the password to the temp file, we will reproduce the tmp/file with this command from mytarget:
+
+```bash
+mytarget=$(echo I am user bandit23 | md5sum | cut -d ' ' -f 1)
+```
+
+Now, we use the checksum and cat that file. And, we're done!
+
+> Things learnt: bash scripts, md5sum, cut
+
+
+# Level 23 → Level 24
+
+As we look into the cronjob for bandit24, we can see the following script:
+
+```bash
+#!/bin/bash
+
+myname=$(whoami)
+
+cd /var/spool/$myname
+echo "Executing and deleting all scripts in /var/spool/$myname:"
+for i in * .*;
+do
+    if [ "$i" != "." -a "$i" != ".." ];
+    then
+        echo "Handling $i"
+        timeout -s 9 60 ./$i
+        rm -f ./$i
+    fi
+done
+```
+
+jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n
