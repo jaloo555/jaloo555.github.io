@@ -43,6 +43,7 @@ jekyll-archives:
   permalinks:
     category: /categories/:name/
     tag: /tags/:name/
+    ds: /ds/:name/
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

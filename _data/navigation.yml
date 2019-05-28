@@ -5,5 +5,8 @@ main:
     url: /about/
   - title: "Archives"
     url: /archives/
+  - title: "Data Science"
+    url: /ds/
   - title: "GitHub"
     url: https://github.com/jaloo555
+  

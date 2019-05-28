@@ -2,7 +2,7 @@
 layout: post
 title:  "Bandit Writeup"
 date:   2019-05-17 14:18:25 +0800
-categories: bandit
+categories: bandit infosec
 ---
 > Writeups for Overthewire Bandit (14-34)
 
