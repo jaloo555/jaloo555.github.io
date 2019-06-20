@@ -6,7 +6,7 @@ categories: infosec
 ---
 > Web penetration writeups
 
-Due to the on-going nature of the CTF, I will be avoiding keywords related to the problem or hint the answer out of respect for the competition.
+*Due to the on-going nature of the CTF, I will be avoiding keywords related to the problem or hint the answer out of respect for the competition.*
 
 ## Cookie Stealing
 
@@ -25,3 +25,7 @@ Hence, I'll try a script to be run on the page to acess the page.
 Looking at the console, it seems that they logged the admin cookie. Once I changed my user cookie to the admin's, I instantly got access.
 
 And we're done!
+
+## Fork Bombing
+
+> XSS that hangs the server
