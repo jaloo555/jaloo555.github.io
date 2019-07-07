@@ -12,10 +12,11 @@ categories: intro infosec
 1. Overthewire (Bandit)
 2. Building a homelab 
 3. Cyberstart (A program for college students)
-4. Tryhackme (OWASP, Pentesting)
-5. Pentesterlab (Web pentesting)
-6. PicoCTF
-7. Hacker101
+4. Portswigger Web Security Lectures
+5. Tryhackme (OWASP, Pentesting)
+6. Pentesterlab (Web pentesting)
+7. PicoCTF
+8. Hacker101
 
 ## Details
 

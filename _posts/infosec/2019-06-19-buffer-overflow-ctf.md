@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Buffer Overflow CTF writeups"
+title:  "Buffer Overflows"
 date:   2019-06-19 21:35:15 +0800
 categories: infosec
 ---
