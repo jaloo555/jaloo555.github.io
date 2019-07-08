@@ -212,4 +212,14 @@ do
 done
 ```
 
-jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n
+From this, we know that every minute a script in */var/spool/bandit24* is being run and deleted. We simply have to create our own script to be run and voila.
+
+```bash
+#!/bin/bash
+
+cat /etc/bandit_pass/bandit24 >> /tmp/abc22/bandit24pass
+```
+
+Then, we will find the bandit24 file in our directory. And, we're done!
+
+# Level 24 - Level 25
