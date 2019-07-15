@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "A speaker identification project"
+title:  "Speaker identification with ML"
 date:   2019-07-14 11:38:45 +0800
 categories: datascience ml
 ---
