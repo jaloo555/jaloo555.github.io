@@ -11,3 +11,9 @@ Just a CS student into Infosec
 Writeups.
 Code.
 Homelabs.
+
+## Resume
+
+Here's my resume, click the link to download it.
+
+[CV](../images/resume_jason.pdf)
