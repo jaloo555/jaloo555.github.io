@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Cybersecurity Basics"
-date:   2019-05-19 11:38:45 +0800
+date:   2019-07-14 11:38:45 +0800
 categories: infosec
 ---
 
