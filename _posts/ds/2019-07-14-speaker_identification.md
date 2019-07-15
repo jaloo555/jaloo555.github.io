@@ -2,7 +2,7 @@
 layout: post
 title:  "Speaker identification with ML"
 date:   2019-07-14 11:38:45 +0800
-categories: datascience ml
+categories: ds
 ---
 > Building a ml pipeline that adds labels to audio files for speaker identification
 
