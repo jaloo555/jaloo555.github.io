@@ -21,6 +21,23 @@ Here, I will be posting all my notes regarding hardware and virtualization.
 - Context switching: Processor sharing processor time between applications.
 - Heat sink: thermally conductive material, drags heat away. Thermal paste conducts heat and traps air (good insulator)
 
+### Register
+- EAX (Extended Accumulator Register) 32 bit - General purpose
+  - AX 16 bit
+  - AH/AL 8 bit
+- EIP (Extended Instruction Pointer) - Holds address of next instruction
+- Others include EBX, ECX, EDX (can be split up)
+- Here are the class of unseparable registers:
+  - ESP is the stack pointer register (memory adress pointing to the top of the current frame in the RAM)
+  - EBP is the base pointer (points to the bottom of the current RAM)
+  - ESI is the source index (holds memory address of data when the data is being used as a source in the operation i.e. copying data)
+  - EDI is the destination memory address (holds the destination memory address i.e. where the memory is being copied to)
+    
+### Fetch-decode-execute
+- Control unit fetches next instruction from RAM and decodes it
+- ALU executes the instruction
+- 4 instructions in total
+
 ### RAM
 - Think of it as the number of memory available to run programs
 - Faster speed (read data from ram), Volatile

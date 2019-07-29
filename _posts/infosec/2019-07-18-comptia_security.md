@@ -44,4 +44,10 @@ We have to make sure authorized personnel can access data but unauthorized perso
 2. Access Control 
    - Combination of Identification, Authentication and Authorization to grant and restrict access
      - *Identification*: User claims an identity that is unique
-     - **
+     - *Authentication*: Proving identity with something you have, are or know
+     - *Authorization*: Permissions that limit access
+3. Steganography
+   - Security through obscurity, hiding data in plain site
+#### Integrity
+Provides assurances that data has not changed
+1. Use hashing algorithms. By comparing hashes, if it isn't changed the hash shouldn't change either.
