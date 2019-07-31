@@ -71,3 +71,48 @@ Here, I will be posting all my notes regarding hardware and virtualization.
 - DVI: a more modern version of VGI
 - HDMI: more modern, can also transmit audio
 - Display port / usb-c: newest standard
+
+## File Systems
+- It's like a protocol for accessing files on and saving files to storage
+- ***Clusters***
+  - Every storage device is broken down into a series of clusters (the smallest section of the disk that can be used to store a file)
+  - *Slack space* is saving a 1kb file on a 32kb cluster, wasting 31kb
+  - Each cluster has an address
+- Usually, a metadata (used to index and store info for the file) and a content file is stored per file -> Why we can recover files: we simply delete the metadata from the index and mark the content cluster as overwritable
+
+## FAT32
+- FAT32 is introduced with Windows 95. Uses File Allocation Table to map each cluster
+- Doesn't support files larger than 4GB
+- Doesn't support file permissions because it doesn't store metadata for who created a file
+- Used primarily in USB drives 
+
+## exFAT
+- Designed for USBs as well, doesn't support file permissions
+- Larger file size, designed to replace FAT32
+
+## NTFS
+- New Technology File System, used by modern windows
+- Includes permissions support, encryption support and shadow copies (backup files effectively)
+- Large file size limit
+- Can heal from data corruption
+- Limited support by non-Windows system
+
+## EXT3
+- Extended File System is used in linux
+- Supports permissions and encryption but not shadow copy
+- Max file size of 2TB
+- 'Journaling' file system, means that changes to the disk are tracked in a separate file system called the journal
+  - Can recover the drive due to corruption
+
+## EXT4
+- Modern version of EXT3
+- Supports permissions, encryptions, no shadow copy
+- You can turn off journal, has faster disk check process
+
+## HFS+
+- Hierarchal File System Plus is a proprietary file system only compatible with Mac OS
+- No file size limitations, has a journal system with permissions and encryptions
+
+## APFS
+- Apple File System is the modern Mac file system
+- Duplicate files can be stored without additional space, with changes to one copy of a file being saved as a delta (diff old & new)
