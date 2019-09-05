@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Cybersecurity Basics"
+title:  "Networking Basics"
 date:   2019-07-14 11:38:45 +0800
 categories: infosec
 ---
@@ -47,20 +47,41 @@ categories: infosec
 - Since NAT isn't needed, we don't need private ip addresses. Nevertheless, ::1 is localhost
 - Subnets on IPv6 may have larger range than the entire IPv4 range and would be hard to search
 
+# Emails
+## General overview - SMTP
+- Connection-oriented, text-based protocol
+- SMTP transactions
+  - *MAIL* establishes return path, bounce address, sender
+  - *RCPT* establishes address of recipient
+  - *DATA* contains email header and content
+
+1. Send an email
+2. Transmitted to outgoing mail server
+3. Outgoing mail server looks at the server handling the domain the email is going to
+4. Transmit to incoming mail server
+5. Incoming mail server looks up the email account
+6. Recipient email client syncs inbox
+
+## Protocols for syncing email folder with server
+- Post Office Protocol 3 (POP3): Email is stored until you sync with the server, then it is deleted
+  - Risk losing emails
+  - Can't have multiple email accounts
+- Internet Message Access Protocol (IMAP): Email stored and remains on server until deleted
+  - Can track state on each email
+  - Can sync message state across devices
+  - Server-side search
+- Microsoft exchange
+  - Restricted Windows Server
+
+## Spoofing
+- SMTP doesn't require authentication, anyone can change the FROM address
+- Sender Policy Framework (SPF): in the DNS config for your domain, you put a record of all the IP addresses of mail servers allowed to send emails from your domain
+  - If an email is sent with your from address but not from one of the ips, it is spoofed
+- DKIM: Putting a public key in the text record in your DNS setting. When your email server sends an email, it will sign the email with a public key and can be verified by checking the DNS records for the public key
+
 # Misc
 
-## File headers
-
-- Commonly termed magic bytes / file signatures.
-- Tells us the type of file at the beginning of a file
-- A plain text file doesn't have a file header 
-- 50 4B 03 04 (for a normal zip archive)
-- 50 4B 05 06 (for an empty zip archive)
-- 50 4B 07 08 (for a spanned zip archive)
-- jpg files FF D8 FF DB or FF D8 FF E0 or FF D8 FF E1
-- Uses pairs because 2 hex characters = 1 byte (8 bits) of data58 68 63 31 4a 69 36 43 64 7a
-
-## Google dorking
+### Google dorking
 
 > We can use google to search for unsecured security cameras, passwords, software, documents etc.
 
