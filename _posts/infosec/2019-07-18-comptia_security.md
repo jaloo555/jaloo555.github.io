@@ -3,6 +3,7 @@ layout: post
 title:  "Comptia Security+ Essential Notes"
 date:   2019-07-18 15:53:45 +0800
 categories: infosec
+draft: true
 ---
 > Essential notes for the Comptia Security+ Exam
 

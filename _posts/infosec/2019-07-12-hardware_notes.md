@@ -128,4 +128,4 @@ Here, I will be posting all my notes regarding hardware and virtualization.
 - 50 4B 05 06 (for an empty zip archive)
 - 50 4B 07 08 (for a spanned zip archive)
 - jpg files FF D8 FF DB or FF D8 FF E0 or FF D8 FF E1
-- Uses pairs because 2 hex characters = 1 byte (8 bits) of data58 68 63 31 4a 69 36 43 64 7a
+- Uses pairs because 2 hex characters = 1 byte (8 bits) of data 58 68 63 31 4a 69 36 43 64 7a
